@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Sep 18 19:21:22 IST 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016d-44a4-4fec-000006e8f8f0 
+on database directory memory:/home/sanket/Downloads/UserRecord/testdb with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
+Loaded from file:/home/sanket/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Private Build
+java.runtime.version=1.8.0_222-8u222-b10-1ubuntu1~18.04.1-b10
+user.dir=/home/sanket/Downloads/UserRecord
+os.name=Linux
+os.arch=amd64
+os.version=4.15.0-20-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
