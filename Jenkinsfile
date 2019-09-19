@@ -1,14 +1,13 @@
 pipeline {
   
   /*Jenkins Slave is Docker Container*/
-/*   agent {
+   agent {
         docker 
         { 
           image 'sanketjaiswal12345/new-slaves-master2' 
-          args  '--privileged -v /var/run/docker.sock:/var/run/docker.sock'  
+          args  '--privileged -v /var/run/docker.sock:/var/run/docker.sock -v /opt/sonarqube/sonarqube-7.5/conf/sonar.properties:/opt/sonarqube/sonarqube-7.5/conf/sonar.properties -v /opt/sonarscannersonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties:/opt/sonarscannersonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties'  
         }
-    } */  
-    agent any
+    } 
 
     stages {
 
