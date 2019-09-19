@@ -5,7 +5,7 @@ pipeline {
         docker 
         { 
           image 'sanketjaiswal12345/new-slaves-master2' 
-          args  '--privileged -v /var/run/docker.sock:/var/run/docker.sock -v /opt/sonarqube/sonarqube-7.5/conf/sonar.properties:/opt/sonarqube/sonarqube-7.5/conf/sonar.properties -v /opt/sonarscannersonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties:/opt/sonarscannersonar-scanner-3.2.0.1227-linux/conf/sonar-scanner.properties'  
+          args  '--privileged -v /var/run/docker.sock:/var/run/docker.sock -v /opt/sonarqube/sonarqube-7.5:/opt/sonarqube/sonarqube-7.5 -v /opt/sonarscannersonar-scanner-3.2.0.1227-linux:/opt/sonarscannersonar-scanner-3.2.0.1227-linux'  
         }
     } 
 
@@ -26,7 +26,7 @@ pipeline {
           {
             withSonarQubeEnv ('Sonar')
             {
-              sh 'mvn sonar:sonar   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=b898832120c088619205a7fc9bd221c92b1cde86'
+              sh 'mvn sonar:sonar \-Dsonar.host.url=http://localhost:9000 \ -Dsonar.login=def3a5b2d0c8d38c474599ff32131ed8e36af8d4'
             }
           }
         }
