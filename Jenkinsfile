@@ -1,13 +1,13 @@
 pipeline {
   
   /*Jenkins Slave is Docker Container*/
-/*    agent {
+  agent {
         docker 
         { 
           image 'sanketjaiswal12345/new-slaves-master2' 
           args  '--privileged -v /var/run/docker.sock:/var/run/docker.sock '  
         }
-    }  */
+    }  
     agent any
 
     stages {
@@ -21,7 +21,7 @@ pipeline {
           }
         }
 
-        stage('SonarQube Check')
+        /* stage('SonarQube Check')
         {
           steps
           {
@@ -30,7 +30,7 @@ pipeline {
               sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=def3a5b2d0c8d38c474599ff32131ed8e36af8d4'
             }
           }
-        }
+        } */
 
         /*Package stage*/  
         stage('Package Stage') 
