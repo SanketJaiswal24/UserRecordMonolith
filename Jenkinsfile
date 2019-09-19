@@ -1,14 +1,15 @@
 pipeline {
   
   /*Jenkins Slave is Docker Container*/
-  agent {
+/*   agent {
         docker 
         { 
           image 'sanketjaiswal12345/new-slaves-master2' 
           args  '--privileged -v /var/run/docker.sock:/var/run/docker.sock '  
         }
-    }  
-
+    }   */
+    agent any
+    
     stages {
 
         /*Compile stage*/
