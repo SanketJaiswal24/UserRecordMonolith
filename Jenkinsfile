@@ -20,16 +20,16 @@ pipeline {
           }
         }
 
-        /* stage('SonarQube Check')
+       stage('SonarQube Check')
         {
           steps
           {
             withSonarQubeEnv ('Sonar')
             {
-              sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=def3a5b2d0c8d38c474599ff32131ed8e36af8d4'
+              sh 'mvn sonar:sonar -Dsonar.projectKey=devops-demo -Dsonar.host.url=http://localhost:9000 -Dsonar.login=2c6d7ae3a260791ea85d63dca84e1fb8dd2310cd'
             }
           }
-        } */
+        } 
 
         /*Package stage*/  
         stage('Package Stage') 
