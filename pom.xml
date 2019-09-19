@@ -14,15 +14,13 @@
 	<name>UserRecord</name>
 	<description>Demo project for Spring Boot</description>
 
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
 
               <properties>
   <sonar.host.url>http://localhost:9000</sonar.host.url>
   <sonar.login>def3a5b2d0c8d38c474599ff32131ed8e36af8d4</sonar.login>
   <sonar.language>java</sonar.language>
   <sonar.scm.provider>git</sonar.scm.provider>
+   <java.version>1.8</java.version>
 </properties>
 
 	<dependencies>
