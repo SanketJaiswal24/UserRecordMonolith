@@ -50,6 +50,7 @@ pipeline {
          {
            steps
            {
+             sh 'mvn clean test jacoco:report'
               /*Publish Jacoca Report in Jenkins Dashboard */
             junit 'target/**/*.xml'
             step([
