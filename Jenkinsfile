@@ -89,21 +89,11 @@ pipeline {
             
         }
         
-        unstable {
-
-            echo 'I am unstable :/'
-
-        }
-        
         failure {
 
           /*slack Notification Incomming Webhook*/
           slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'build', color: 'bad', message: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})", tokenCredentialId: 'slack-integration'
        
-        }
-        
-        changed {
-          echo 'I am changed :/'
         }
 
     }
