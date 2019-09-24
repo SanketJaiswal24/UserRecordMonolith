@@ -4,7 +4,7 @@ pipeline {
  agent {
         docker 
         { 
-          image 'sanketjaiswal12345/new-slaves-master2' 
+          image 'sonarqube'   /*image 'sanketjaiswal12345/new-slaves-master2'*/  
           args  '--privileged -v /var/run/docker.sock:/var/run/docker.sock '  
         }
     }  
@@ -69,7 +69,6 @@ pipeline {
           sh "docker run -d -p 8085:8085 localhost:5000/spring-boot-apache-derby-docker2.0.0${env.BUILD_NUMBER}"
        }
       }            
-
     }
   
     /*Post Decleration*/
