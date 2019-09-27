@@ -11,6 +11,15 @@ pipeline {
     
     stages {
 
+       stage('Folder Name')
+       {
+         steps
+         {
+            def foldername = getFolderName()
+            echo foldername
+         }
+       }
+
         /*Compile stage*/
         stage('Compile stage')
         {
