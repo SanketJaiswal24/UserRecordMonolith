@@ -11,14 +11,6 @@ pipeline {
     
     stages {
 
-       stage('Folder Name')
-       {
-         steps
-         {
-           for file in *; do [[ -d "$f" ]] && { dir=$f; break; }; done
-         }
-       }
-
         /*Compile stage*/
         stage('Compile stage')
         {
@@ -85,6 +77,8 @@ pipeline {
         always {
 
            echo 'Post action running'
+           echo '\n\n-----\nThis build process has ended.\n\nWorkspace Files:\n'
+           sh 'find ${WORKSPACE} -type d -print '
 
         }
         
