@@ -15,7 +15,7 @@ pipeline {
        {
          steps
          {
-           for f in *; do [[ -d "$f" ]] && { dir=$f; break; }; done
+           for file in *; do [[ -d "$f" ]] && { dir=$f; break; }; done
          }
        }
 
