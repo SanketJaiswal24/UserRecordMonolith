@@ -16,6 +16,7 @@ pipeline {
         {
           steps
           {
+            sh 'ls'
             sh 'mvn clean compile'
           }
         }
@@ -42,7 +43,7 @@ pipeline {
         stage('Push Docker Image'){
            steps
            {
-           sh "docker push localhost:5000/spring-boot-apache-derby-docker2.0.0${env.BUILD_NUMBER}"
+           /*sh "docker push localhost:5000/spring-boot-apache-derby-docker2.0.0${env.BUILD_NUMBER}"*/
            }
          }
 
