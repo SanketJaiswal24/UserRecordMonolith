@@ -15,11 +15,9 @@ pipeline {
        {
          steps
          {
-            script
-            {
-            def foldername = getFolderName()
-            echo foldername
-            }
+           for d in */ ; do
+             echo "$d"
+            done
          }
        }
 
