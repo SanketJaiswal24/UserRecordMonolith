@@ -80,7 +80,7 @@ pipeline {
 
            echo 'Post action running'
            echo '\n\n-----\nThis build process has ended.\n\nWorkspace Files:\n'
-           sh 'find ${WORKSPACE} -type d -print '
+           sh 'find ${WORKSPACE} -type f -print '
 
         }
         
