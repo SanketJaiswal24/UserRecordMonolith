@@ -15,8 +15,11 @@ pipeline {
        {
          steps
          {
+            script
+            {
             def foldername = getFolderName()
             echo foldername
+            }
          }
        }
 
