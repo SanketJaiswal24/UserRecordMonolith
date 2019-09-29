@@ -16,8 +16,7 @@ pipeline {
         {
           steps
           {
-            sh 'ls'
-            sh 'pwd'
+            sh './listdir.sh'
             sh 'mvn clean compile'
           }
         }
@@ -81,12 +80,6 @@ pipeline {
 
            echo 'Post action running'
           //  sh 'find ${WORKSPACE} -type f -print '
-          
-          dirName="/var/lib/jenkins/workspace/Devops-Demo"
-
-          for dirName in */ ; do
-          echo "MyMonoRepro = $dirName" 
-          done
           
          }
         

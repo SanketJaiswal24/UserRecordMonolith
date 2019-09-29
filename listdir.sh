@@ -1,4 +1,5 @@
-
-  for UserRecord in */ ; do
-          echo "MyMonoRepro = $UserRecord" 
-          done
+dir="${PWD##*/}"
+    
+for dir in */ ; do
+   echo "MyMonoRepro = $dir" 
+done
