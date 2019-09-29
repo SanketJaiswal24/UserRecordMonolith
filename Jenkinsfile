@@ -81,9 +81,13 @@ pipeline {
 
            echo 'Post action running'
           //  sh 'find ${WORKSPACE} -type f -print '
-          //for UserRecord in */ ; do
-          //echo "MyMonoRepro = $UserRecord" 
-          //done
+          
+          dirName="/var/lib/jenkins/workspace/Devops-Demo"
+
+          for dirName in */ ; do
+          echo "MyMonoRepro = $dirName" 
+          done
+          
          }
         
         success {
