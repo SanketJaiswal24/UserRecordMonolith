@@ -17,6 +17,7 @@ pipeline {
           steps
           {
             sh 'ls'
+            sh 'pwd'
             sh 'mvn clean compile'
           }
         }
@@ -79,15 +80,11 @@ pipeline {
         always {
 
            echo 'Post action running'
-           echo '\n\n-----\nThis build process has ended.\n\nWorkspace Files:\n'
           //  sh 'find ${WORKSPACE} -type f -print '
-          // for Devops-Demo in */; do
-          //echo "MyMonoRepro = $Devops-Demo" 
+          //for UserRecord in */ ; do
+          //echo "MyMonoRepro = $UserRecord" 
           //done
-
-           echo "${PWD##*/}"
-
-        }
+         }
         
         success {
             
