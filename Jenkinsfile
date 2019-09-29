@@ -81,10 +81,9 @@ pipeline {
            echo 'Post action running'
            echo '\n\n-----\nThis build process has ended.\n\nWorkspace Files:\n'
           //  sh 'find ${WORKSPACE} -type f -print '
-          for d in *;
-           do
-           echo "${d##*/}"
-            done
+          for Devops-Demo in */; do
+          echo "MyMonoRepro = $Devops-Demo" 
+          done
         }
         
         success {
