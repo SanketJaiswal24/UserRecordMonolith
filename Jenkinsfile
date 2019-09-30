@@ -81,21 +81,16 @@ pipeline {
           script
           {
            def dir = pwd() 
+            
             for (dirs in dir)
             {
               echo "MyMonoRepo = $dirs"
             }
-             
-             try 
-             {
-                 dh = new File('.')
+               File dh = new File('.')
                  dh.eachFile {
-                println(it)
-              } 
-             } catch(execption ex)
-             {
-               println("Catching the execption");
-             }
+                 println(it)
+            }
+
           }
         }
       }
