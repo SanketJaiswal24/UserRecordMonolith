@@ -1,3 +1,4 @@
+import groovy.io.FileType
 pipeline {
   
   /*Jenkins Slave is Docker Container*/
@@ -78,11 +79,12 @@ pipeline {
         {
           script
           {
-            def dir = "${PWD}"
-            for (listfolder in dir)
-            {
-              echo "MyMonoRepo = $listfolder"
+            def currentDir = new File('.')
+            def dirs = []
+            currentDir.eachFile FileType.DIRECTORIES, {
+            dirs << it.name
             }
+            echo "MyMonoRepro = $dirs" 
           }
         }
       }
