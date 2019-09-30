@@ -81,10 +81,10 @@ pipeline {
           script
           {
             def dir = pwd() 
-            for(dirs in "*/")
-             {
-              echo "MyMonoRepro = $dirs"
-             }
+           for dir in "*/" ; do
+            echo "MyMonoRepro = $dir" 
+            done
+             
             /* def currentDir = new File('.')
             def dirs = []
             currentDir.eachFile FileType.DIRECTORIES, {
