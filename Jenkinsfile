@@ -10,7 +10,24 @@ pipeline {
     }  
     
     stages {
-
+    
+          stage('1') {
+            steps {
+                script {
+                    def tests = [:]
+                    for (f in findFiles(glob: '*/')) {
+                        tests["${f}"] = {
+                            node {
+                                stage("${f}") {
+                                    echo '${f}'
+                                }
+                            }
+                        }
+                    }
+                    parallel tests
+                }
+            }
+        }       
         /*Compile stage*/
         stage('Compile stage')
         {
@@ -81,12 +98,12 @@ pipeline {
           script
           {
           /*  def dir = pwd() */
-            def currentDir = new File('.')
+            /* def currentDir = new File('.')
             def dirs = []
             currentDir.eachFile FileType.DIRECTORIES, {
             dirs << it.name
             }
-           echo "MyMonoRepro = $dirs" 
+           echo "MyMonoRepro = $dirs"  */
           }
         }
       }
