@@ -92,7 +92,7 @@ pipeline {
                  dh.eachFile {
                 println(it)
               } 
-             } catch(Execption ex)
+             } catch(execption ex)
              {
                println("Catching the execption");
              }
