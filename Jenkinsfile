@@ -10,17 +10,7 @@ pipeline {
     }  
     
     stages {
-    
-          stage('1') {
-            steps {
-                script {
-                    def tests = pwd()
-                    for (f in findFiles(glob: '*/')) {
-                      echo "MyMonoRepro = $f"  
-                }
-            }
-        }   
-      }
+  
         /*Compile stage*/
         stage('Compile stage')
         {
@@ -97,6 +87,11 @@ pipeline {
             dirs << it.name
             }
            echo "MyMonoRepro = $dirs"  */
+            
+            def tests = pwd()
+            for (f in findFiles(glob: '*/')) {
+                echo "MyMonoRepro = $f"  
+            }
           }
         }
       }
