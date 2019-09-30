@@ -81,9 +81,9 @@ pipeline {
           script
           {
            def dir = pwd() 
-            for (dir in dir)
+            for (dirs in dir)
             {
-              echo "MyMonoRepo = $dir"
+              echo "MyMonoRepo = $dirs"
             }
 
           dh = new File('.')
