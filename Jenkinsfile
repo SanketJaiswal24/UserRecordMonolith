@@ -1,4 +1,4 @@
-import groovy.io.FileType
+
 pipeline {
   /*Jenkins Slave is Docker Container*/
  agent {
@@ -80,17 +80,18 @@ pipeline {
         {
           script
           {
-          
-          /*  def dir = pwd() 
-           for (dirs in dir)
-            {
-            echo "MyMonoRepo = $dirs"
-            } */
-            def currentDir = new File('.')
+          /*  def dir = pwd() */
+         /*    def currentDir = new File('.')
             def dirs = []
             currentDir.eachFile FileType.DIRECTORIES, {
             dirs << it.name
+            } */
+
+            1.upto(5)
+            {
+              println "$it"
             }
+
           }
         }
       }
@@ -100,10 +101,8 @@ pipeline {
     post {
 
         always {
-
            echo 'Post action running'
           //  sh 'find ${WORKSPACE} -type f -print '
-          
          }
         
         success {
