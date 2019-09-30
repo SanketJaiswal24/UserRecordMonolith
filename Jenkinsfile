@@ -70,7 +70,23 @@ pipeline {
             sh 'pwd'
           /*sh "docker run -d -p 8085:8085 localhost:5000/spring-boot-apache-derby-docker2.0.0${env.BUILD_NUMBER}"*/
        }
-      }            
+      }     
+
+      stage('MonoRepro')
+      {
+        steps
+        {
+          script
+          {
+            def dir = "${PWD##*/}"
+            for (dir in */)
+            {
+              echo "MyMonoRepo = $dir"
+            }
+          }
+        }
+      }
+
     }
   
     /*Post Decleration*/
