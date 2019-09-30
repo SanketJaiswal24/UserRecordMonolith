@@ -1,5 +1,5 @@
+import groovy.io.FileType
 pipeline {
-   import groovy.io.FileType  
   /*Jenkins Slave is Docker Container*/
  agent {
         docker 
