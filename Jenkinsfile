@@ -86,15 +86,21 @@ pipeline {
             currentDir.eachFile FileType.DIRECTORIES, {
             dirs << it.name
             } */
+          }
+        }
+      }
 
+       stage('Grovvy')
+       {
+         steps
+         {
             1.upto(5)
             {
               println "$it"
             }
+         }
+       }
 
-          }
-        }
-      }
     }
   
     /*Post Decleration*/
