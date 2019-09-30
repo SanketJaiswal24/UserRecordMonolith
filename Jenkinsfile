@@ -1,4 +1,3 @@
-import static groovy.io.FileType.FILES
 pipeline {
   
   /*Jenkins Slave is Docker Container*/
@@ -79,15 +78,24 @@ pipeline {
         {
           script
           {
-           def dir = new File(".");
-           def files = [];
-           dir.traverse(type: FILES, maxDepth: 0) { files.add(it) };
-            echo "MyMonoRepro = $dir" 
+            def dir = "${PWD}"
+            for (listfolder in dir)
+            {
+              echo "MyMonoRepo = $listfolder"
+            }
+            echo_all(dir)
           }
         }
       }
 
     }
+
+@NonCPS // has to be NonCPS or the build breaks on the call to .each
+def echo_all(list) {
+    list.each { item ->
+        echo "Hello ${item}"
+    }
+}
   
     /*Post Decleration*/
     post {
