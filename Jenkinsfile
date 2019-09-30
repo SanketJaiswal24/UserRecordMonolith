@@ -83,6 +83,8 @@ pipeline {
             {
               echo "MyMonoRepo = $listfolder"
             }
+            def foldername = getFolderName()
+            print "${foldername}"
           }
         }
       }
