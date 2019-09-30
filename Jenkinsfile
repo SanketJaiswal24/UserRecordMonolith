@@ -85,12 +85,17 @@ pipeline {
             {
               echo "MyMonoRepo = $dirs"
             }
-
-          dh = new File('.')
-           dh.eachFile {
-           println(it)
-           } 
-
+             
+             try 
+             {
+                 dh = new File('.')
+                 dh.eachFile {
+                println(it)
+              } 
+             } catch(Execption ex)
+             {
+               println("Catching the execption");
+             }
           }
         }
       }
