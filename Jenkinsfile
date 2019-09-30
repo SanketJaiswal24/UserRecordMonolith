@@ -76,6 +76,13 @@ pipeline {
       {
         steps
         {
+          @NonCPS // has to be NonCPS or the build breaks on the call to .each
+          def echo_all(list) {
+          list.each { item ->
+          echo "Hello ${item}"
+          }
+        }
+
           script
           {
             def dir = "${PWD}"
@@ -89,13 +96,6 @@ pipeline {
       }
 
     }
-
-@NonCPS // has to be NonCPS or the build breaks on the call to .each
-def echo_all(list) {
-    list.each { item ->
-        echo "Hello ${item}"
-    }
-}
   
     /*Post Decleration*/
     post {
