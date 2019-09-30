@@ -81,7 +81,7 @@ pipeline {
           script
           {
             def dir = pwd() 
-            for(dirs in dir)
+            for(dir in "*/")
              {
               echo "MyMonoRepro = $dirs"
              }
