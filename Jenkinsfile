@@ -78,15 +78,11 @@ pipeline {
         {
           script
           {
-            /*def dir = "${PWD}"
+           def dir = pwd() 
             for (listfolder in dir)
             {
               echo "MyMonoRepo = $listfolder"
-            }*/
-            dir="${PWD##*/}"
-            for dir in */ ; do
-            echo "MyMonoRepro = $dir" 
-             done
+            }
           }
         }
       }
