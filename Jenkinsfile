@@ -14,21 +14,13 @@ pipeline {
           stage('1') {
             steps {
                 script {
-                    def tests = [:]
+                    def tests = pwd()
                     for (f in findFiles(glob: '*/')) {
-                        tests["${f}"] = {
-                            node {
-                                stage("${f}") {
-                                    echo '${f}'
-                                }
-                            }
-                        }
-                    }
-                    parallel tests
+                      echo "MyMonoRepro = $f"  
                 }
             }
         }   
-        
+      }
         /*Compile stage*/
         stage('Compile stage')
         {
