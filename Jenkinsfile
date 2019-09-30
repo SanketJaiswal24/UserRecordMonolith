@@ -27,7 +27,8 @@ pipeline {
                     parallel tests
                 }
             }
-        }       
+        }   
+    }    
         /*Compile stage*/
         stage('Compile stage')
         {
