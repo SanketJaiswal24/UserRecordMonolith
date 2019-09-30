@@ -81,12 +81,10 @@ pipeline {
           script
           {
            def dir = pwd() 
-            for (listfolder in dir)
+            for (dir in */)
             {
-              echo "MyMonoRepo = $listfolder"
+              echo "MyMonoRepo = $dir"
             }
-            def foldername = getFolderName()
-            print "${foldername}"
           }
         }
       }
