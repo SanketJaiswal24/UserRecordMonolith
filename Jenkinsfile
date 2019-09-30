@@ -1,4 +1,4 @@
-
+import groovy.io.FileType
 pipeline {
   /*Jenkins Slave is Docker Container*/
  agent {
@@ -64,7 +64,7 @@ pipeline {
            }
          }
 
-       /* Run Image in Dev Server*/
+       /* Run Image in Dev Server*/import groovy.io.FileType
        stage('Run Container on Dev Server')
        {  
         steps
@@ -86,12 +86,12 @@ pipeline {
             currentDir.eachFile FileType.DIRECTORIES, {
             dirs << it.name
             }
-            echo "MyMonoRepro = $dirs"
+           echo "MyMonoRepro = $dirs" 
           }
         }
       }
     }
-
+  
     /*Post Decleration*/
     post {
 
