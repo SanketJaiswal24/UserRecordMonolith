@@ -64,7 +64,7 @@ pipeline {
            }
          }
 
-       /* Run Image in Dev Server*/import groovy.io.FileType
+       /* Run Image in Dev Server*/
        stage('Run Container on Dev Server')
        {  
         steps
