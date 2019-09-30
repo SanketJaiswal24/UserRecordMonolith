@@ -28,7 +28,7 @@ pipeline {
                 }
             }
         }   
-    }    
+        
         /*Compile stage*/
         stage('Compile stage')
         {
