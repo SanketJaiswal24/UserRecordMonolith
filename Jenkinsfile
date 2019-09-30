@@ -1,4 +1,4 @@
-import groovy.io.FileType
+import static groovy.io.FileType.FILES
 pipeline {
   
   /*Jenkins Slave is Docker Container*/
@@ -79,12 +79,10 @@ pipeline {
         {
           script
           {
-            def currentDir = new File('.')
-            def dirs = []
-            currentDir.eachFile FileType.DIRECTORIES, {
-            dirs << it.name
-            }
-            echo "MyMonoRepro = $dirs" 
+           def dir = new File(".");
+           def files = [];
+           dir.traverse(type: FILES, maxDepth: 0) { files.add(it) };
+            echo "MyMonoRepro = $dir" 
           }
         }
       }
