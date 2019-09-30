@@ -80,18 +80,17 @@ pipeline {
         {
           script
           {
-          /*  def dir = pwd() */
+            def dir = pwd() 
+            for(dirs in dir)
+             {
+              echo "MyMonoRepro = $dirs"
+             }
             /* def currentDir = new File('.')
             def dirs = []
             currentDir.eachFile FileType.DIRECTORIES, {
             dirs << it.name
             }
            echo "MyMonoRepro = $dirs"  */
-            
-            def tests = pwd()
-            for (f in findFiles(glob: '*/')) {
-                echo "MyMonoRepro = $f"  
-            }
           }
         }
       }
