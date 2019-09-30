@@ -78,8 +78,11 @@ pipeline {
         {
           script
           {
-            String currentDir = new File(".").getAbsolutePath()
-              echo "MyMonoRepo = $currentDir"
+            def dir = "${PWD}"
+            for (listfolder in dir)
+            {
+              echo "MyMonoRepo = $listfolder"
+            }
           }
         }
       }
