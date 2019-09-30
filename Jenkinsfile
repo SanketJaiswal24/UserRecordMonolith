@@ -78,7 +78,7 @@ pipeline {
         {
           script
           {
-            def dir = "${PWD##*/}"
+            def dir = "${PWD}"
             for (dir in */)
             {
               echo "MyMonoRepo = $dir"
