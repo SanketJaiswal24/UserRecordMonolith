@@ -77,8 +77,11 @@ pipeline {
       {
         steps
         {
-        def pipeline = load "listdir.groovy"
-         pipeline.mycommacode()
+           script
+           {
+             def pipeline = load "listdir.groovy"
+              pipeline.mycommacode()
+           }
         }
      }
   }
