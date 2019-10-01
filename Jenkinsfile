@@ -80,17 +80,18 @@ pipeline {
         {
           script
           {
-            def dir = pwd() 
-           for dir in "*/" ; do
-            echo "MyMonoRepro = $dir" 
-            done
-             
-            /* def currentDir = new File('.')
+           File file = new File("out.txt")
+            dh = new File('.')
             def dirs = []
-            currentDir.eachFile FileType.DIRECTORIES, {
-            dirs << it.name
+            def count = 0;
+          dh.eachFile FileType.DIRECTORIES,{
+            if(count != 10)
+            {
+            file << it.name+"\n"  
+            count++
             }
-           echo "MyMonoRepro = $dirs"  */
+         }
+       println file.text             
           }
         }
       }
