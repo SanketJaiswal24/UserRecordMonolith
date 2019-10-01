@@ -1,6 +1,6 @@
 import groovy.io.FileType
 
-def mycommacode()
+void mycommacode()
 {
     File fh2 = new File("fileContent.txt")
    def lines = fh2.readLines()
