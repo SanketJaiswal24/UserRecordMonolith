@@ -77,7 +77,7 @@ pipeline {
       {
         steps
         {
-         pipeline = load 'listdir.groovy'
+        def pipeline = load 'listdir.groovy'
         }
      }
   }
