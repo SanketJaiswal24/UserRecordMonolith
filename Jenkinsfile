@@ -80,18 +80,8 @@ pipeline {
         {
           script
           {
-           File file = new File("out.txt")
-            dh = new File('.')
-            def dirs = []
-            def count = 0;
-          dh.eachFile FileType.DIRECTORIES,{
-            if(count != 10)
-            {
-            file << it.name+"\n"  
-            count++
-            }
-         }
-       println file.text             
+            new File("fileContent.txt").eachLine { line ->
+            println line
           }
         }
       }
