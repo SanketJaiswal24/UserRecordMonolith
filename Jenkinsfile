@@ -1,4 +1,3 @@
-import groovy.io.FileType
 pipeline {
   /*Jenkins Slave is Docker Container*/
  agent {
@@ -27,7 +26,7 @@ pipeline {
             steps 
             {
            sh 'mvn package'
-            }   
+            }   import groovy.io.FileType
         }
         
         /*Build Dcoker Image*/ 
@@ -78,16 +77,9 @@ pipeline {
       {
         steps
         {
-          script
-          {
-                File fh2 = new File("fileContent.txt")
-                def lines = fh2.readLines()
-                for (line in lines) {
-                println line
-              }
-          }
-       }
-    }
+    
+        }
+     }
   }
     /*Post Decleration*/
     post {
