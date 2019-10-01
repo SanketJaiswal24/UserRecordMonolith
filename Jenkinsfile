@@ -80,8 +80,11 @@ pipeline {
         {
           script
           {
-            def dir  = pwd()
-            readFileLineByLine("dir/fileContent.txt")
+                File fh2 = new File("fileContent.txt")
+                def lines = fh2.readLines()
+              for (line in lines) {
+                println line
+              }
           }
        }
     }
@@ -111,16 +114,6 @@ pipeline {
         }
 
     }
-}
-  void readFileLineByLine(String filePath) {
-    File file = new File(filePath)
-       def line, noOfLines = 0;
-      file.withReader { reader ->
-         while ((line = reader.readLine()) != null) {
-          println "${line}"
-        noOfLines++
-     }
- }
 }
 
 
