@@ -77,7 +77,8 @@ pipeline {
       {
         steps
         {
-        def pipeline = load 'listdir.groovy'
+        def pipeline = load "listdir.groovy"
+         pipeline.mycommacode()
         }
      }
   }
