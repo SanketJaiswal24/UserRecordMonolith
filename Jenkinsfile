@@ -26,9 +26,9 @@ pipeline {
             steps 
             {
            sh 'mvn package'
-            }   import groovy.io.FileType
+            }   
         }
-        
+      
         /*Build Dcoker Image*/ 
         stage('Build Docker Image')
         {
@@ -77,7 +77,7 @@ pipeline {
       {
         steps
         {
-    
+         pipeline = load 'listdir.groovy'
         }
      }
   }
