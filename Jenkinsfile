@@ -80,13 +80,12 @@ pipeline {
         {
           script
           {
-            new File("fileContent.txt").eachLine { line ->
-            println line
+            def dir  = pwd()
+            readFileLineByLine("dir/fileContent.txt")
           }
-        }
-      }
+       }
     }
-  
+
     /*Post Decleration*/
     post {
 
@@ -112,6 +111,16 @@ pipeline {
         }
 
     }
+}
+  void readFileLineByLine(String filePath) {
+    File file = new File(filePath)
+       def line, noOfLines = 0;
+      file.withReader { reader ->
+         while ((line = reader.readLine()) != null) {
+          println "${line}"
+        noOfLines++
+     }
+ }
 }
 
 
