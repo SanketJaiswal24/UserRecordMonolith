@@ -1,13 +1,10 @@
 pipeline {
   /*Jenkins Slave is Docker Container*/
  agent {
-        docker 
-        { 
-          image 'sanketjaiswal12345/new-slaves-master2'  
-          args  '--privileged -v /var/run/docker.sock:/var/run/docker.sock '  
-        }
-    }  
-    
+      node {
+        label 'DockerSlave'
+    }
+  }  
     stages {
   
         /*Compile stage*/
@@ -16,7 +13,7 @@ pipeline {
           steps
           {
             sh './listdir.sh'
-            sh 'mvn clean compile'
+            /*sh 'mvn clean compile'*/
           }
         }
 
@@ -25,7 +22,7 @@ pipeline {
         {
             steps 
             {
-           sh 'mvn package'
+           /*sh 'mvn package'*/
             }   
         }
       
@@ -34,7 +31,7 @@ pipeline {
         {
              steps
              {
-               sh 'pwd'
+               /*sh 'pwd'*/
           /*  sh "docker build -t localhost:5000/spring-boot-apache-derby-docker2.0.0${env.BUILD_NUMBER} ." */
              }
         }
@@ -52,14 +49,15 @@ pipeline {
          {
            steps
            {
-             sh 'mvn clean test jacoco:report'
+             //sh 'mvn clean test jacoco:report'
               /*Publish Jacoca Report in Jenkins Dashboard */
-            junit 'target/**/*.xml'
-            step([
-              $class           : 'JacocoPublisher',
-              execPattern      : 'target/jacoco.exec',
-              sourcePattern    : '**/src/main/java'
-           ])
+           // junit 'target/**/*.xml'
+           // step([
+             // $class           : 'JacocoPublisher',
+              //execPattern      : 'target/jacoco.exec',
+             // sourcePattern    : '**/src/main/java'
+           //])
+           sh 'pwd' 
            }
          }
 
