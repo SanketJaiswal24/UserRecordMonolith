@@ -23,6 +23,7 @@ pipeline {
             steps 
             {
            /*sh 'mvn package'*/
+              sh 'pwd'
             }   
         }
       
@@ -31,6 +32,7 @@ pipeline {
         {
              steps
              {
+                sh 'pwd'
                /*sh 'pwd'*/
           /*  sh "docker build -t localhost:5000/spring-boot-apache-derby-docker2.0.0${env.BUILD_NUMBER} ." */
              }
