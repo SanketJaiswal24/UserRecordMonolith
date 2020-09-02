@@ -16,7 +16,6 @@ pipeline {
         {
           steps
           {
-            sh './listdir.sh'
             sh 'mvn clean compile'
           }
         }
