@@ -1,10 +1,14 @@
 pipeline {
   /*Jenkins Slave is Docker Container*/
- agent {
-      node {
-        label 'DockerSlave'
-    }
-  }  
+  agent any
+//  agent {
+//         // docker 
+//         // { 
+//         //   image 'sanketjaiswal12345/new-slaves-master2'  
+//         //   args  '--privileged -v /var/run/docker.sock:/var/run/docker.sock '  
+//         // }
+//     }  
+    
     stages {
   
         /*Compile stage*/
@@ -13,7 +17,7 @@ pipeline {
           steps
           {
             sh './listdir.sh'
-            /*sh 'mvn clean compile'*/
+            sh 'mvn clean compile'
           }
         }
 
@@ -22,8 +26,7 @@ pipeline {
         {
             steps 
             {
-           /*sh 'mvn package'*/
-              sh 'pwd'
+           sh 'mvn package'
             }   
         }
       
@@ -32,8 +35,7 @@ pipeline {
         {
              steps
              {
-                sh 'pwd'
-               /*sh 'pwd'*/
+               sh 'pwd'
           /*  sh "docker build -t localhost:5000/spring-boot-apache-derby-docker2.0.0${env.BUILD_NUMBER} ." */
              }
         }
@@ -51,15 +53,14 @@ pipeline {
          {
            steps
            {
-             //sh 'mvn clean test jacoco:report'
+             sh 'mvn clean test jacoco:report'
               /*Publish Jacoca Report in Jenkins Dashboard */
-           // junit 'target/**/*.xml'
-           // step([
-             // $class           : 'JacocoPublisher',
-              //execPattern      : 'target/jacoco.exec',
-             // sourcePattern    : '**/src/main/java'
-           //])
-           sh 'pwd' 
+            junit 'target/**/*.xml'
+            step([
+              $class           : 'JacocoPublisher',
+              execPattern      : 'target/jacoco.exec',
+              sourcePattern    : '**/src/main/java'
+           ])
            }
          }
 
@@ -86,14 +87,14 @@ pipeline {
             echo 'I am Success Done'
             
            /*slack Notification Incomming Webhook*/
-           slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'build', color: 'good', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})", tokenCredentialId: 'slack-integration'
+          //  slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'build', color: 'good', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})", tokenCredentialId: 'slack-integration'
             
         }
         
         failure {
 
           /*slack Notification Incomming Webhook*/
-          slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'build', color: 'bad', message: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})", tokenCredentialId: 'slack-integration'
+          // slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'build', color: 'bad', message: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})", tokenCredentialId: 'slack-integration'
        
         }
 
