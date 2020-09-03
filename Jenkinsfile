@@ -1,6 +1,10 @@
 pipeline {
   /*Jenkins Slave is Docker Container*/
   agent any
+    tools { 
+           maven 'maven-3.3.9' 
+           jdk 'java' 
+     } 
 //  agent {
 //         // docker 
 //         // { 
