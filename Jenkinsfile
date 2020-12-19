@@ -24,7 +24,7 @@ pipeline {
           }
         }
 
-        /*Package stage*/  
+        /*Package stage the */  
         stage('Package Stage') 
         {
             steps 
