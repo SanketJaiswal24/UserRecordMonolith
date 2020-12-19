@@ -16,7 +16,7 @@ pipeline {
     stages {
   
         /*Compile stage he the*/
-        stage('Compile stage --->')
+        stage('Compile stage')
         {
           steps
           {
