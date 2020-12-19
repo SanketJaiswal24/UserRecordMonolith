@@ -1,6 +1,7 @@
 import groovy.io.FileType
 
 //the same chages is happen
+// How to create the fucation
 void mycommacode()
 {
     File fh2 = new File("fileContent.txt")
